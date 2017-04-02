@@ -1,0 +1,11 @@
+<section class="photo {{ page.header.body_classes }}">
+  <div class="container">
+    <blockquote>
+      {{ page.title }}
+    </blockquote>
+  </div>
+  <picture>
+    {% set image = page.media.images|first %}
+    <img src="{{ image.url }}" alt="{{ page.title }}">
+  </picture>
+</section>

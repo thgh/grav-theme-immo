@@ -1,0 +1,437 @@
+/* Core Stuff */
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #606d6e;
+  font-family: Oxygen, sans-serif;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: normal;
+  color: #14679e;
+}
+
+.container {
+  position: relative;
+  max-width: 55em;
+  margin: 0 auto;
+}
+
+
+/* Header */
+
+.header__hidden {
+  display: none;
+}
+
+.header__logo {
+  padding: 18px 0 0 90px;
+}
+
+.header__logo .residentie {
+  line-height: 1em;
+  font-size: 1em;
+  font-weight: normal;
+  color: black;
+}
+
+.header__logo .overhamme {
+  line-height: 1em;
+  font-size: 1em;
+  font-weight: bold;
+  letter-spacing: .06em;
+  color: #107bae;
+}
+
+.header__logo .realisatie {
+  display: block;
+  line-height: 1.5em;
+  font-size: .75em;
+  font-weight: normal;
+  font-family: Rufina, serif;
+  color: #606d6e;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 150px;
+  }
+  .header {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 110px;
+    padding-top: 40px;
+    background: white;
+  }
+  .sticky .header {
+    transform: translateY(-40px);
+    outline: 1px solid #ddd;
+  }
+  .sticky-transition .header {
+    transition: transform .5s;
+  }
+  .sticky .header__logo .realisatie {
+    display: none;
+  }
+  .header .container {
+    height: 70px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .header__logo {
+    height: 58px;
+    padding: 0;
+  }
+  .header__logo .residentie {
+    line-height: 24px;
+    font-size: 24px;
+    font-weight: normal;
+    font-family: Oxygen, sans-serif;
+    color: black;
+  }
+  .header__logo .overhamme {
+    display: block;
+    line-height: 24px;
+    font-size: 27px;
+    font-weight: bold;
+    font-family: Oxygen, sans-serif;
+    letter-spacing: .06em;
+    color: #107bae;
+  }
+  .header__logo .realisatie {
+    display: block;
+    padding-top: 14px;
+    line-height: 11px;
+    font-size: 11px;
+    font-weight: normal;
+    font-family: Rufina, serif;
+    color: #606d6e;
+    z-index: -1;
+  }
+}
+
+
+/* Nav */
+
+.nav {}
+
+
+/* Nav > Toggle */
+
+.nav__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.nav__toggle:hover {
+  background: #efefef;
+}
+
+.nav__toggle>svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -14px;
+  margin-top: -14px;
+  transition: transform .2s;
+}
+
+.nav--closed .nav__closer,
+.nav--open .nav__opener {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav__toggle {
+    display: none;
+  }
+}
+
+
+/* Nav > Links */
+
+.nav__a {
+  display: block;
+  border: 0 solid transparent;
+  border-width: 0 4px;
+  padding: 1em;
+  line-height: 1em;
+  text-align: center;
+  background: #efefef;
+  color: #39393a;
+  transition: border-color 1s;
+}
+
+.nav__a:hover {
+  border-color: #107bae;
+  transition: border-color .2s;
+}
+
+.nav--closed .nav__a {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .nav {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav--closed .nav__a,
+  .nav__a {
+    display: block;
+    padding: 1em 0;
+    background: none;
+    color: #39393a;
+    border-width: 0 0 4px 0;
+  }
+  .nav__a:hover {
+    border-color: #107bae;
+    transition: border-color .2s;
+  }
+}
+
+
+/* Blueprints > Photo */
+
+.photo img {
+  display: block;
+  width: 100%;
+  height: 58.771%;
+}
+
+.photo blockquote {
+  margin: 0;
+  border: 0;
+  padding: 1.5em 1.5em;
+  font-family: Rufina, serif;
+  font-size: 27px;
+  line-height: 1.3em;
+  background: rgba(16, 123, 173, 0.9);
+  color: white;
+}
+
+.photo blockquote::before {
+  content: '';
+  display: block;
+  margin-bottom: 1em;
+  height: 4px;
+  width: 100px;
+  background: white;
+}
+
+.photo.right blockquote {
+  left: auto;
+  right: 0;
+}
+
+@media (min-width: 768px) {
+  .photo {
+    position: relative;
+  }
+  .photo blockquote {
+    position: absolute;
+    z-index: 1;
+    top: -1.5em;
+    left: 0;
+    max-width: 16em;
+  }
+}
+
+@media (min-width: 12000px) {
+  .photo picture {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 600px;
+  }
+  .photo img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+/* Blueprints > Text */
+
+.text {
+  padding: 5rem 1em;
+}
+
+.text .container {
+  max-width: 540px;
+}
+
+.text .container::before {
+  content: '';
+  display: block;
+  margin-bottom: 1em;
+  height: 4px;
+  width: 100px;
+  background: #107bae;
+}
+
+.text h2 {
+  font-weight: normal;
+  font-family: Rufina, serif;
+}
+
+.text p {
+  font-size: 15px;
+  font-family: Oxygen, sans-serif;
+  color: #39393a;
+}
+
+
+/* Blueprints > Map */
+
+.map {
+  position: relative;
+  height: 400px;
+  height: 45vw;
+  max-height: 60vh;
+  background-position: center;
+}
+
+.map__marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -88px;
+  margin-left: 46px;
+}
+
+.map svg {
+  position: absolute;
+  top: 0;
+}
+
+.map__text {
+  position: absolute;
+  top: 23px;
+  left: 16px;
+  width: 178px;
+  font-size: 24px;
+  line-height: 28px;
+  color: black;
+  text-align: center;
+}
+
+.map__text b {
+  color: #107bae;
+}
+
+
+/* Blueprints > Floor */
+
+.floors {
+  margin: 3rem 0 5rem;
+}
+
+.floors .container {
+  max-width: 64em;
+}
+
+.floor {
+  padding: 1em;
+  flex: 0 0 25em;
+  width: 25em;
+  max-width: 100%;
+}
+
+.floor h2 {
+  font-weight: bold;
+  text-align: center;
+}
+
+.floor h2 + p {
+  text-align: center;
+}
+
+.floor img {
+  background: #107bae;
+  height: auto;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+/* Section spacing */
+
+.text + .photo {
+  margin-top: 5rem;
+}
+
+
+/* Section alternatives */
+
+.inverse {
+  background: #107bae;
+  color: white;
+}
+
+.inverse h2,
+.inverse p {
+  color: white;
+}
+
+.inverse .container::before {
+  background: white;
+}
+
+a {
+  color: #1F8CD6;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #175E91;
+}
+
+
+/* Menu Settings */
+
+.footer {
+  padding: 3em 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 26px;
+  background: #ededed;
+  color: #898989;
+}
+
+.footer small {
+  font-size: 12px;
+  font-weight: normal;
+}

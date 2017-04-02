@@ -1,0 +1,9 @@
+<article class="col floor">
+  <h2>{{ header.title }}</h2>
+  <p>{{ header.subtitle }}</p>
+  <p>
+    {% set image = header.image|first %}
+    <img src="{{ image.url }}" width="100px" height="50px" >
+  </p>
+  {{ content }}
+</article>

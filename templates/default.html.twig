@@ -1,5 +1,14 @@
 {% extends 'partials/base.html.twig' %}
 
-{% block content %}
-    {{ page.content }}
+{% block header_title %}
+<div class="header__title">
+  <div class="header__hidden">
+    {{ parent() }}
+  </div>
+  <div class="header__logo">
+    <span class="residentie">Residentie</span>
+    <span class="overhamme">Overhamme</span>
+    <span class="realisatie">Realisatie Frans Penne Invest nv</span>
+  </div>
+</div>
 {% endblock %}

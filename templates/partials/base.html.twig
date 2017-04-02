@@ -1,68 +1,107 @@
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+{% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
+
 <!DOCTYPE html>
 <html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
 <head>
 {% block head %}
-    <meta charset="utf-8" />
-    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+  <meta charset="utf-8" />
+  <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% include 'partials/metadata.html.twig' %}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include 'partials/metadata.html.twig' %}
 
-    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
-    <link rel="canonical" href="{{ page.url(true, true) }}" />
+  <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+  <link rel="canonical" href="{{ page.url(true, true) }}" />
 
-    {% block stylesheets %}
-        {% do assets.addCss('http://yui.yahooapis.com/pure/0.6.0/pure-min.css', 100) %}
-        {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 99) %}
-        {% do assets.addCss('theme://css/custom.css', 98) %}
-    {% endblock %}
-    {{ assets.css() }}
+  {% block stylesheets %}
+    {% do assets.addCss('https://fonts.googleapis.com/css?family=Oxygen|Rufina', 9) %}
+    {% do assets.addCss('theme://css/main.css', 2) %}
+  {% endblock %}
+  {{ assets.css() }}
 
-    {% block javascripts %}
-        {% do assets.addJs('jquery', 100) %}
-    {% endblock %}
-    {{ assets.js() }}
+  {% block javascripts %}
+    {% do assets.add('theme://js/sticky-nav.js') %}
+    {% do assets.add('theme://js/single-page-nav.js', {'loading':'async', 'group':'bottom'}) %}
+    {% do assets.add('theme://js/smooth-scroll.js', {'loading':'async', 'group':'bottom'}) %}
+    {% do assets.add('theme://js/toggle-nav.js', {'loading':'async', 'group':'bottom'}) %}
+  {% endblock %}
 
-{% endblock head%}
+{% endblock head %}
 </head>
 <body id="top" class="{{ page.header.body_classes }}">
 
+  {{ assets.js() }}
 {% block header %}
-    <div class="header">
-        <div class="wrapper padding">
-            <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
-                <i class="fa fa-rebel"></i>
-                {{ config.site.title }}
-            </a>
-            {% block header_navigation %}
-            <nav class="main-nav">
-                {% include 'partials/navigation.html.twig' %}
-            </nav>
-            {% endblock %}
+  <header class="header">
+    <div class="header__wrapper">
+      <nav class="container nav nav--closed">
+        <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
+          {% block header_title %}
+            <h1>{{ config.site.title }}</h1>
+          {% endblock %}
+        </a>
+
+        <div class="nav__toggle">
+          <svg class="nav__closer" width="28" height="28" viewBox="0 0 28 28">
+            <title>Close</title>
+            <g stroke="#107BAE" stroke-width="4" fill="none" fill-rule="evenodd" stroke-linecap="square">
+              <path d="M3 24.932L24.932 3M3 3l21.932 21.932"/>
+            </g>
+          </svg>
+          <svg class="nav__opener" width="28" height="28" viewBox="0 0 28 28">
+            <title>Open</title>
+            <g stroke="#107BAE" stroke-width="4" fill="none" fill-rule="evenodd" stroke-linecap="square">
+              <path d="M0 3 L28 3M0 14 L28 14M0 25 L28 25"/>
+            </g>
+          </svg>
         </div>
+
+        {% block header_navigation %}
+          {% for module in page.collection %}
+            {% if module.header.visible %}
+              {% set current_module = (module.active or module.activeChild) ? 'active' : '' %}
+              <a class="nav__a {{ current_module }}" href="#{{ _self.pageLinkName(module.menu) }}">{{ module.menu }}</a>
+            {% endif  %}
+          {% endfor %}
+          {% for mitem in site.menu %}
+            <aclass="nav__a  {% if mitem.class %}{{ mitem.class }}{% endif %}" href="{{ mitem.url }}">
+              {% if mitem.icon %}<i class="fa fa-{{ mitem.icon }}"></i>{% endif %}
+              {{ mitem.text }}
+            </a>
+          {% endfor %}
+        {% endblock %}
+      </nav>
     </div>
+  </header>
 {% endblock %}
 
 {% block body %}
-    <section id="body">
-        <div class="wrapper padding">
-        {% block content %}{% endblock %}
-        </div>
-    </section>
+  {% block content %}
+    {{ page.content }}
+    {% for module in page.collection() %}
+      <div id="{{ _self.pageLinkName(module.menu) }}"></div>
+      {{ module.content }}
+    {% endfor %}
+  {% endblock %}
 {% endblock %}
 
 {% block footer %}
-    <div class="footer text-center">
-        <div class="wrapper padding">
-            <p><a href="http://getgrav.org">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://www.rockettheme.com">RocketTheme</a>.</p>
-        </div>
+  <footer class="footer">
+    <div class="container">
+      <p>
+        Alle afbeeldingen op deze site zijn artistieke impressies en zijn niet bindend.
+      </p>
+      <p>
+        <small>Website door <a href="https://www.stans.be/">www.stans.be</a></small>
+      </p>
     </div>
+  </footer>
 {% endblock %}
 
 {% block bottom %}
-    {{ assets.js('bottom') }}
+  {{ assets.js('bottom') }}
 {% endblock %}
 
 </body>
