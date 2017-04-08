@@ -59,17 +59,17 @@
         </div>
 
         {% block header_navigation %}
-          {% for module in page.collection %}
+          {% set home = page.find('/') %}
+          {% for module in home.collection %}
             {% if module.header.visible %}
               {% set current_module = (module.active or module.activeChild) ? 'active' : '' %}
-              <a class="nav__a {{ current_module }}" href="#{{ _self.pageLinkName(module.menu) }}">{{ module.menu }}</a>
+              <a class="nav__a {{ current_module }}" href="/#{{ _self.pageLinkName(module.menu) }}">{{ module.menu }}</a>
             {% endif  %}
           {% endfor %}
-          {% for mitem in site.menu %}
-            <aclass="nav__a  {% if mitem.class %}{{ mitem.class }}{% endif %}" href="{{ mitem.url }}">
-              {% if mitem.icon %}<i class="fa fa-{{ mitem.icon }}"></i>{% endif %}
-              {{ mitem.text }}
-            </a>
+
+          {% for page in pages.children.visible %}
+            {% set current_page = (page.active or page.activeChild) ? 'selected' : '' %}
+            <a class="nav__a {{ current_page }}" href="{{ page.url }}">{{ page.menu }}</a>
           {% endfor %}
         {% endblock %}
       </nav>
