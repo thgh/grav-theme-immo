@@ -1,11 +1,11 @@
 // Smooth scroll anchors if raf support
-
-// Based on raf-scroll-to
-// https://github.com/webyak/raf-scroll-to
-// MIT - Copyright (c) 2015 Yannik Schweinzer
 if (window.requestAnimationFrame) {
-  var raf = window.requestAnimationFrame
+  var SCROLL_DURATION = 400
 
+  // Based on raf-scroll-to
+  // https://github.com/webyak/raf-scroll-to
+  // MIT - Copyright (c) 2015 Yannik Schweinzer
+  var raf = window.requestAnimationFrame
   var easeInOutQuad = function(t, b, c, d) {
     t /= d / 2;
     if (t < 1) {
@@ -28,12 +28,16 @@ if (window.requestAnimationFrame) {
       currentTime = 0,
       increment = 16;
 
+    duration *= Math.abs(change) < 1024 ? 1 : Math.log2(Math.abs(change)) - 9
+
     var animateScroll = function() {
       currentTime += increment;
       var val = easeInOutQuad(currentTime, start, change, duration);
-      element.scrollTop = val;
       if (currentTime < duration) {
-        raf(animateScroll);
+        element.scrollTop = val
+        raf(animateScroll)
+      } else {
+        element.scrollTop = to
       }
     };
     animateScroll();
@@ -61,7 +65,7 @@ if (window.requestAnimationFrame) {
       var offset = elem ? elem.getBoundingClientRect().top + container.scrollTop - 70 : 0
 
       // Start scrolling, if elem not found, scroll to top
-      scrollTo(container, offset, 300)
+      scrollTo(container, offset, SCROLL_DURATION)
 
       // Cancel the page jump, but still apply the history state
       evt.preventDefault()
