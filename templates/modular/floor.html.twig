@@ -2,7 +2,7 @@
   <h2>{{ header.title }}</h2>
   <p>{{ header.subtitle }}</p>
   <p>
-    {% set image = header.image|first %}
+    {% set image = page.media.images|first %}
     <img src="{{ image.url }}" width="100px" height="50px" >
   </p>
   {{ content }}

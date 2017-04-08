@@ -23,7 +23,7 @@ h2 {
 
 .container {
   position: relative;
-  max-width: 55em;
+  max-width: 55rem;
   margin: 0 auto;
 }
 
@@ -224,7 +224,7 @@ h2 {
 .photo blockquote {
   margin: 0;
   border: 0;
-  padding: 1.5em 1.5em;
+  padding: 1.5em 2rem;
   font-family: Rufina, serif;
   font-size: 27px;
   line-height: 1.3em;
@@ -244,6 +244,10 @@ h2 {
 .photo.right blockquote {
   left: auto;
   right: 0;
+}
+
+.photo.text-hidden blockquote {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -354,36 +358,61 @@ h2 {
   margin: 3rem 0 5rem;
 }
 
-.floors .container {
-  max-width: 64em;
-}
-
 .floor {
-  padding: 1em;
-  flex: 0 0 25em;
-  width: 25em;
+  padding: 2rem 3rem;
+  flex: 0 0 27.5rem;
+  width: 27.5rem;
   max-width: 100%;
+  font-size: 14px;
 }
 
 .floor h2 {
+  margin-bottom: 0;
   font-weight: bold;
   text-align: center;
 }
 
 .floor h2 + p {
+  margin: .5em 0 1.5em;
   text-align: center;
 }
 
 .floor img {
   background: #107bae;
   height: auto;
-  width: 100%;
+  margin: 0 -2rem;
+  width: calc(100% + 4rem);
+}
+
+.floor p {
+  font-family: Rufina, serif;
+  line-height: 25px;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin: 0 -1rem;
+}
+
+.row--numbers {
+  justify-content: space-between;
+  text-align: center;
+  color: #107bae;
+  font-size: 18px;
+}
+
+.row--numbers .col {
+  display: block;
+  padding: 2rem .5rem;
+  flex: 1 0 auto;
+}
+
+.row--numbers strong {
+  display: block;
+  font-size: 32px;
+  line-height: 1.5em;
 }
 
 
@@ -415,8 +444,36 @@ a {
   text-decoration: none;
 }
 
+a:focus,
 a:hover {
   color: #175E91;
+}
+
+p a {
+  font-weight: bold;
+}
+
+.downloads a {
+  position: relative;
+  display: block;
+  font-family: Oxygen, sans-serif;
+  outline: none;
+}
+
+.downloads a::after {
+  position: absolute;
+  left: -2rem;
+  top: 2px;
+  width: 18px;
+  height: 18px;
+  display: block;
+  transition: transform .2s;
+  content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='-9 -9 18 18'>  <g fill='none' stroke='#1F8CD6' stroke-linecap='round' stroke-width='2'>    <polyline points='-7 3, -7 7, 7 7, 7 3'/>    <polyline stroke-linejoin='round' points='-5 -1, 0 4, 5 -1'/>    <polyline points='0 -7, 0 4'/>  </g></svg>");
+}
+
+.downloads a:focus::after,
+.downloads a:hover::after {
+  content: url("data:image/svg+xml; utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='-9 -9 18 18'>  <g fill='none' stroke='#175E91' stroke-linecap='round' stroke-width='2'>    <polyline points='-7 3, -7 7, 7 7, 7 3'/>    <polyline stroke-linejoin='round' points='-5 -1, 0 4, 5 -1'/>    <polyline points='0 -7, 0 4'/>  </g></svg>");
 }
 
 
