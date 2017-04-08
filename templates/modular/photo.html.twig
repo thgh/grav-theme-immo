@@ -1,11 +1,8 @@
-<section class="photo {{ page.header.body_classes }}">
+{% set image = page.media.images|first %}
+<section class="photo {{ page.header.body_classes }}" style="background-image: url({{ image.url }})">
   <div class="container">
     <blockquote>
       {{ page.title }}
     </blockquote>
   </div>
-  <picture>
-    {% set image = page.media.images|first %}
-    <img src="{{ image.url }}" alt="{{ page.title }}">
-  </picture>
 </section>
