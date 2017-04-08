@@ -40,7 +40,7 @@ if (window.requestAnimationFrame) {
   };
 
   // For every anchor
-  [].forEach.call(document.querySelectorAll('a'), function(elem) {
+  [].forEach.call(document.querySelectorAll('a[href]'), function(elem) {
     // Listen for clicks
     elem.addEventListener('click', function(evt) {
       // Check out the hash which it points to
@@ -58,8 +58,10 @@ if (window.requestAnimationFrame) {
       // Webkit fix
       var container = document.scrollingElement || document.documentElement
 
+      var offset = elem ? elem.getBoundingClientRect().top + container.scrollTop - 70 : 0
+
       // Start scrolling, if elem not found, scroll to top
-      scrollTo(container, elem ? elem.offsetTop - 70 : 0, 300)
+      scrollTo(container, offset, 300)
 
       // Cancel the page jump, but still apply the history state
       evt.preventDefault()
