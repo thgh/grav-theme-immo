@@ -40,7 +40,7 @@ if (window.requestAnimationFrame) {
   };
 
   // For every anchor
-  [].forEach.call(document.querySelectorAll('a[href]'), function(elem) {
+  [].forEach.call(document.querySelectorAll('nav a'), function(elem) {
     // Listen for clicks
     elem.addEventListener('click', function(evt) {
       // Check out the hash which it points to
