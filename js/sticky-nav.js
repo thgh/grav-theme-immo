@@ -19,7 +19,7 @@ if (classList) {
   function updateStickyNav() {
     var pageY = window.pageYOffset || document.documentElement.scrollTop
     classIf('sticky-top', pageY < 10)
-    lastPageY && classIf('sticky-up', pageY <= lastPageY)
+    classIf('sticky-up', pageY <= lastPageY || !lastPageY)
     lastPageY = pageY
   }
 
