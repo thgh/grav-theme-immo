@@ -73,7 +73,7 @@ h2 {
   font-size: 1em;
   font-weight: bold;
   letter-spacing: .06em;
-  color: #107bae;
+  color: #14679e;
 }
 
 .header__logo .realisatie {
@@ -122,7 +122,7 @@ h2 {
     font-weight: bold;
     font-family: Oxygen, sans-serif;
     letter-spacing: .06em;
-    color: #107bae;
+    color: #14679e;
   }
   .header__logo .realisatie {
     display: none;
@@ -195,7 +195,7 @@ h2 {
 }
 
 .nav__a:hover {
-  border-color: #107bae;
+  border-color: #14679e;
   transition: border-color .2s;
 }
 
@@ -312,7 +312,7 @@ h2 {
   margin-bottom: 1em;
   height: 4px;
   width: 100px;
-  background: #107bae;
+  background: #14679e;
 }
 
 .text h2 {
@@ -362,7 +362,7 @@ h2 {
 }
 
 .map__text b {
-  color: #107bae;
+  color: #14679e;
 }
 
 
@@ -392,7 +392,7 @@ h2 {
 }
 
 .floor img {
-  background: #107bae;
+  background: #14679e;
   height: auto;
   margin: 0 -2rem;
   width: calc(100% + 4rem);
@@ -413,7 +413,7 @@ h2 {
 .row--numbers {
   justify-content: space-between;
   text-align: center;
-  color: #107bae;
+  color: #14679e;
   font-size: 18px;
 }
 
@@ -464,7 +464,7 @@ h2 {
 /* Section alternatives */
 
 .inverse {
-  background: #107bae;
+  background: #14679e;
   color: white;
 }
 
