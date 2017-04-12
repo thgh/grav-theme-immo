@@ -29,11 +29,12 @@
     {% do assets.add('theme://js/toggle-nav.js', {'loading':'async', 'group':'bottom'}) %}
   {% endblock %}
 
+  {{ assets.js() }}
+
 {% endblock head %}
 </head>
 <body id="top" class="{{ page.header.body_classes }}">
 
-  {{ assets.js() }}
 {% block header %}
   <header class="header">
     <div class="header__wrapper">
