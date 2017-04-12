@@ -1,3 +1,6 @@
+{# maps plugin doesn't load jquery dependency... #}
+{% do assets.add('jquery') %}
+
 <section class="map {{ page.header.body_classes }}">
   {{ content }}
 </section>
