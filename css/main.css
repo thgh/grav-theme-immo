@@ -438,9 +438,11 @@ h2 {
 .row--logo {
   padding: 2rem 0 0;
   align-items: center;
+  justify-content: center;
 }
 
 .row--logo img {
+  margin: 2rem;
   max-width: 300px;
   max-height: 128px;
   width: auto;
@@ -450,12 +452,6 @@ h2 {
 @media (min-width: 768px) {
   .text .row--logo {
     margin: 0 calc(1rem + 270px - 50vw);
-  }
-}
-
-@media (min-width: 1400px) {
-  .text .row--logo {
-    margin: 0 calc(1rem + 270px - 700px);
   }
 }
 
