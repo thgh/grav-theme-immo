@@ -16,7 +16,7 @@
   <link rel="canonical" href="{{ page.url(true, true) }}" />
 
   {% block stylesheets %}
-    {% do assets.addCss('https://fonts.googleapis.com/css?family=Oxygen|Rufina', 9) %}
+    {% do assets.addCss('https://fonts.googleapis.com/css?family=Oxygen:400,700|Rufina:400,700', 9) %}
     {% do assets.addCss('theme://css/main.css', 2) %}
   {% endblock %}
   {{ assets.css() }}

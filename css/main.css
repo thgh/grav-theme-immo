@@ -18,7 +18,7 @@ body {
 h2 {
   font-size: 32px;
   line-height: normal;
-  color: #14679e;
+  color: #107bae;
 }
 
 .container {
@@ -117,7 +117,7 @@ h2 {
   }
   .header__logo .overhamme {
     display: block;
-    line-height: 24px;
+    line-height: 20px;
     font-size: 27px;
     font-weight: bold;
     font-family: Oxygen, sans-serif;
@@ -224,8 +224,10 @@ h2 {
 .photo {
   display: block;
   width: 100%;
-  height: 62vh;
+  height: 62vh; /*old value*/
+  height: 75vh;
   max-height: 62vh;
+  max-height: 75vh;
   background: #eee;
   background-position: center;
   background-size: cover;
