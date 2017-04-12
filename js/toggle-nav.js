@@ -12,10 +12,5 @@
   window.addEventListener('hashchange', function () {
     html.className = ('' + html.className)
       .replace('nav--open', '')
-
-    // Scrollspy nav
-    ;[].forEach.call(document.querySelectorAll('nav a'), function(elem) {
-      classIf(elem.classList, 'nav__a--active', window.location.href === elem.href)
-    })
   })
 })()
