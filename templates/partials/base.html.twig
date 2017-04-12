@@ -22,6 +22,7 @@
   {{ assets.css() }}
 
   {% block javascripts %}
+    {% do assets.add('theme://js/util.js') %}
     {% do assets.add('theme://js/sticky-nav.js') %}
     {% do assets.add('theme://js/single-page-nav.js', {'loading':'async', 'group':'bottom'}) %}
     {% do assets.add('theme://js/smooth-scroll.js', {'loading':'async', 'group':'bottom'}) %}

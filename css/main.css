@@ -195,8 +195,12 @@ h2 {
 }
 
 .nav__a:hover {
-  border-color: #14679e;
+  border-color: #ccc;
   transition: border-color .2s;
+}
+
+.nav__a--active {
+  border-color: #14679e!important;
 }
 
 .nav--open .nav__a {

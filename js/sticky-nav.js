@@ -18,18 +18,9 @@ if (classList) {
 
   function updateStickyNav() {
     var pageY = window.pageYOffset || document.documentElement.scrollTop
-    classIf('sticky-top', pageY < 10)
-    classIf('sticky-up', pageY <= lastPageY || !lastPageY)
+    classIf(classList, 'sticky-top', pageY < 10)
+    classIf(classList, 'sticky-up', pageY <= lastPageY || !lastPageY)
     lastPageY = pageY
-  }
-
-  // Apply class to html tag based on boolean
-  function classIf(cls, apply) {
-    if (apply) {
-      !classList.contains(cls) && classList.add(cls)
-    } else {
-      classList.contains(cls) && classList.remove(cls)
-    }
   }
 
   // Returns a function, that, when invoked, will only be triggered at most once
