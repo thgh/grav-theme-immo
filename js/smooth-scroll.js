@@ -49,13 +49,12 @@ if (window.requestAnimationFrame) {
     elem.addEventListener('click', function(evt) {
       // Check out the hash which it points to
       var href = this.href || ''
-      var hash = href.slice(href.indexOf('#'))
 
       // Lookup the element it points to
-      var elem = document.getElementById(hash.slice(1))
+      var elem = document.getElementById(href.slice(href.indexOf('#') + 1))
 
       // Stop if not found, except it links to the current page
-      if (!elem && window.location.pathname.slice(0, hash.length) !== hash) {
+      if (!elem && window.location.pathname !== this.pathname) {
         return
       }
 
