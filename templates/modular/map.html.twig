@@ -1,6 +1,3 @@
-<section class="map" style="background-image:url({{ url('theme://assets/overhamme-map.png') }})">
-  <div class="map__marker">
-    <svg width="210" height="144" viewBox="0 0 210 144" xmlns="http://www.w3.org/2000/svg"><defs><filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="a"><feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/><feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0" in="shadowBlurOuter1" result="shadowMatrixOuter1"/><feMerge><feMergeNode in="shadowMatrixOuter1"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g transform="translate(16 14)" fill="none" fill-rule="evenodd"><g filter="url(#a)" fill="#FFF"><path d="M0 0h178v75H0z"/><path d="M54.129 62.02l34.68 33.316L124.55 61"/></g><circle fill="#107BAE" cx="88" cy="118" r="12"/></g></svg>
-    <div class="map__text">Residentie <b>Overhamme</b></div>
-  </div>
+<section class="map {{ page.header.body_classes }}">
+  {{ content }}
 </section>
