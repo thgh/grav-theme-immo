@@ -2,7 +2,7 @@
 {% macro pageLinkName(text) %}{{ text|lower|replace({' ':'_'}) }}{% endmacro %}
 
 <!DOCTYPE html>
-<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}" class="sticky-top">
 <head>
 {% block head %}
   <meta charset="utf-8" />
