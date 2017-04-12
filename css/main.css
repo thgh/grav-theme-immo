@@ -229,11 +229,10 @@ h2 {
   max-height: 62vh;
   max-height: 75vh;
   background: #eee;
-  background-position: center -20%;
-  background-size: cover; /* thg */
-  background-size: 100% auto;
+  background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  transition: background .1s;
 }
 
 .photo blockquote {
@@ -264,6 +263,10 @@ h2 {
 
 .photo.text-hidden blockquote {
   display: none;
+}
+
+.photo.parallax {
+  background-attachment: fixed;
 }
 
 @media (min-width: 768px) {
