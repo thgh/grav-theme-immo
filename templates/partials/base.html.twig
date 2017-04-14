@@ -65,16 +65,24 @@
 
         {% block header_navigation %}
           {% set home = page.find('/') %}
+
+          {% if home.header.visible %}
+            {% set current_page = (home.active or home.activeChild) ? 'nav__a--active' : '' %}
+            <a class="nav__a {{ current_page }}" href="{{ home.url }}">{{ home.menu }}</a>
+          {% endif  %}
+
           {% for module in home.collection %}
             {% if module.header.visible %}
-              {% set current_module = (module.active or module.activeChild) ? 'active' : '' %}
+              {% set current_module = (module.active or module.activeChild) ? 'nav__a--active' : '' %}
               <a class="nav__a {{ current_module }}" href="/#{{ _self.pageLinkName(module.menu) }}">{{ module.menu }}</a>
             {% endif  %}
           {% endfor %}
 
           {% for page in pages.children.visible %}
-            {% set current_page = (page.active or page.activeChild) ? 'selected' : '' %}
-            <a class="nav__a {{ current_page }}" href="{{ page.url }}">{{ page.menu }}</a>
+            {% if page.route != '/' %}
+              {% set current_page = (page.active or page.activeChild) ? 'nav__a--active' : '' %}
+              <a class="nav__a {{ current_page }}" href="{{ page.url }}">{{ page.menu }}</a>
+            {% endif  %}
           {% endfor %}
         {% endblock %}
       </nav>
