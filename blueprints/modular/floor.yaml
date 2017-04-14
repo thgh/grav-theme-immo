@@ -6,7 +6,3 @@ form:
     header.subtitle:
       type: text
       label: Ondertitel
-    header.image:
-      type: file
-      label: Afbeelding
-      destination: 'user/themes/overhamme/assets'
