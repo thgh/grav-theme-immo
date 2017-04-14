@@ -1,5 +1,11 @@
 {% set image = page.media.images|first %}
-<section class="photo {{ page.header.body_classes }}" style="background-image: url({{ image.url }})">
+<section
+  class="photo {{ page.header.body_classes }}"
+  style="background-image: url({{ image.url }})"
+  {% if 'parallax' in page.header.body_classes %}
+    data-stellar-background-ratio="0.3"
+  {% endif  %}
+>
   <div class="container">
     <blockquote>
       {{ page.title }}

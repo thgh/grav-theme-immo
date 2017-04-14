@@ -270,6 +270,7 @@ h2 {
     max-height: 75vh;
     background-size: 100% auto;
     background-attachment: fixed;
+    transition: none;
   }
 }
 
