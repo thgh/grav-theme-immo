@@ -68,10 +68,7 @@ if (window.requestAnimationFrame) {
 
       // Cancel the page jump, but still apply the history state
       evt.preventDefault()
-      history.replaceState(undefined, undefined, hash)
-
-      // Scrollspy nav
-      Scrollspy.update()
+      Scrollspy.replaceHash(this.hash)
     })
   })
 }
