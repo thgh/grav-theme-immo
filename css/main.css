@@ -229,9 +229,8 @@ h2 {
   display: block;
   width: 100%;
   height: 56.25vw;
-  max-height: 75vh;
   background-position: center;
-  background-size: 100% auto;
+  background-size: cover;
   background-repeat: no-repeat;
   transition: background .1s;
 }
@@ -266,8 +265,12 @@ h2 {
   display: none;
 }
 
-.photo.parallax {
-  background-attachment: fixed;
+@media only screen and (min-aspect-ratio: 16/9) {
+  .photo.parallax {
+    max-height: 75vh;
+    background-size: 100% auto;
+    background-attachment: fixed;
+  }
 }
 
 @media (min-width: 768px) {
