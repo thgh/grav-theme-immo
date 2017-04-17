@@ -1,5 +1,5 @@
 {% set image = page.media.images|first %}
-<section class="photo {{ page.header.body_classes }}" style="background-image: url({{ image.url }})">
+<section id="{{ page.header.parallaxID }}" class="photo {{ page.header.body_classes }}" style="background-image: url({{ image.url }})">
   <div class="container">
     <blockquote>
       {{ page.title }}

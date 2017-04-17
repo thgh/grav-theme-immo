@@ -73,7 +73,7 @@ h2 {
   font-size: 1em;
   font-weight: bold;
   letter-spacing: .06em;
-  color: #14679e;
+  color: #107bae;
 }
 
 .header__logo .realisatie {
@@ -122,7 +122,7 @@ h2 {
     font-weight: bold;
     font-family: Oxygen, sans-serif;
     letter-spacing: .06em;
-    color: #14679e;
+    color: #107bae;
   }
   .header__logo .realisatie {
     display: none;
@@ -232,9 +232,10 @@ h2 {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  transition: background .1s;
 }
-
+.photo.parallax {
+  background-attachment: scroll;
+}
 .photo blockquote {
   display: none;
   margin: 0;
@@ -322,7 +323,7 @@ h2 {
   margin-bottom: 1em;
   height: 4px;
   width: 100px;
-  background: #14679e;
+  background: #107bae;
 }
 
 .text h2 {
@@ -429,7 +430,7 @@ h2 {
 .row--numbers {
   justify-content: space-between;
   text-align: center;
-  color: #14679e;
+  color: #107bae;
   font-size: 18px;
 }
 
