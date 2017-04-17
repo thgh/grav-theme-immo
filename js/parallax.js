@@ -10,74 +10,57 @@ http://www.opensource.org/licenses/mit-license.php
 http://www.gnu.org/licenses/gpl.html
 */
 
-(function($){
-	var $window = $(window);
-	var windowHeight = $window.height();
-	var aspectRatio = $window.width() / $window.height();
+(function($) {
+  var $window = $(window);
+  var windowHeight = $window.height();
+  var aspectRatio = $window.width() / $window.height();
 
-	$window.resize(function () {
-		windowHeight = $window.height();
-		aspectRatio = $window.width() / $window.height();
-	});
+  $window.resize(function() {
+    windowHeight = $window.height();
+    aspectRatio = $window.width() / $window.height();
+  });
 
-	$.fn.parallax = function(xpos, speedFactor, outerHeight) {
-		var $this = $(this);
-		var getHeight;
-		var firstTop;
-		var paddingTop = 0;
+  $.fn.parallax = function(xpos, speedFactor) {
+    var $this = $(this);
+    var paddingTop = 0;
 
-					//get the starting position of each element to have parallax applied to it
-					$this.each(function(){
-					    firstTop = $this.offset().top;
-					});
+    // get the starting position of each element to have parallax applied to it
+    var topOffsets = $this.map(function(i, elem) {
+      return $(elem).offset().top;
+    });
 
-					if (outerHeight) {
-						getHeight = function(jqo) {
-							return jqo.outerHeight(true);
-						};
-					} else {
-						getHeight = function(jqo) {
-							return jqo.height();
-						};
-					}
+    // setup defaults if arguments aren't specified
+    if (arguments.length < 1 || xpos === null) xpos = '50%';
+    if (arguments.length < 2 || speedFactor === null) speedFactor = 0.1;
 
-					// setup defaults if arguments aren't specified
-					if (arguments.length < 1 || xpos === null) xpos = "50%";
-					if (arguments.length < 2 || speedFactor === null) speedFactor = 0.1;
-					if (arguments.length < 3 || outerHeight === null) outerHeight = true;
+    // function to be called whenever the window is scrolled or resized
+    function update() {
 
-		// function to be called whenever the window is scrolled or resized
-		function update(){
+      if (aspectRatio >= 1.777) {
+        var pos = $window.scrollTop();
+        $this.each(function(i) {
+          var $element = $(this);
+          var top = $element.offset().top;
+          var height = $element.height();
 
-			if (aspectRatio>=1.7777777778) {
+          // Check if totally above or totally below viewport
+          if (top + height < pos || top > pos + windowHeight) {
+            return;
+          }
 
-			var pos = $window.scrollTop();
+          $this.css('backgroundPosition', xpos + ' ' + Math.round((topOffsets[i] - pos) * speedFactor) + 'px');
+        });
+      } else {
+        // Restore position to default
+        $this.css('backgroundPosition', xpos + ' ' + '50%');
+      }
+    }
+    $window.bind('scroll', update).resize(update);
+    update();
 
-			$this.each(function(){
-				var $element = $(this);
-				var top = $element.offset().top;
-				var height = getHeight($element);
-
-				// Check if totally above or totally below viewport
-				if (top + height < pos || top > pos + windowHeight) {
-					return;
-				}
-
-				$this.css('backgroundPosition', xpos + " " + Math.round((firstTop - pos) * speedFactor) + "px");
-			});
-		} else {
-				$this.css('backgroundPosition', xpos + " " + "50%"); //herstellen positie wanneer niet meer parallax
-		}// end checking if aspectratio
-		}
-		$window.bind('scroll', update).resize(update);
-		update();
-
-	};
+  };
 })(jQuery);
 
-$(document).ready(function(){
-	$('#foto1').parallax("50%", 0.2);
-	$('#foto2').parallax("50%", 0.2);
-	$('#foto3').parallax("50%", 0.2);
-	$('#foto4').parallax("50%", 0.2);
+$(document).ready(function() {
+  $('.parallax').parallax('50%', 0.2);
 })

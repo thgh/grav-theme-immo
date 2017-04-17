@@ -232,7 +232,6 @@ h2 {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  transition: background .1s;
 }
 .photo.parallax {
   background-attachment: scroll;
