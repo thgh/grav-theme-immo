@@ -439,7 +439,9 @@ h2 {
   padding: 2rem .5rem;
   flex: 1 0 auto;
 }
-
+.row--numbers .col img{
+  min-height: 76px;
+}
 .row--numbers strong {
   display: block;
   font-size: 32px;
