@@ -5,4 +5,26 @@
       {{ page.title }}
     </blockquote>
   </div>
+
+  {% if page.media.images|length > 1 %}
+    <div class="carousel">
+      {% for image in page.media.images %}
+        {% if loop.index == 1 %}
+          <div class="carousel--active" style="background-image:url({{ image.url }})"></div>
+        {% else  %}
+          <div data-img="url({{ image.url }})"></div>
+        {% endif  %}
+      {% endfor %}
+    </div>
+
+    <div class="carousel__controls">
+      {% for image in page.media.images %}
+        {% if loop.index == 1 %}
+          <div data-index="{{ loop.index }}" class="carousel__control carousel__control--active"></div>
+        {% else  %}
+          <div data-index="{{ loop.index }}" class="carousel__control"></div>
+        {% endif  %}
+      {% endfor %}
+    </div>
+  {% endif  %}
 </section>

@@ -1,0 +1,88 @@
+.carousel {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel div {
+  display: none;
+  transition: opacity .5s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0;
+  background-color: #666;
+  -webkit-background-size: 100% auto;
+  background-size: 100% auto;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  text-shadow: 0 0 20px #000000;
+}
+
+.carousel > .carousel--active {
+  display: block;
+  z-index: 3;
+  opacity: 1;
+}
+
+.carousel > .carousel--next,
+.carousel > .carousel--prev {
+  display: block;
+  z-index: 2;
+}
+
+.carousel__controls {
+  display: block;
+  position: absolute;
+  z-index: 4;
+  bottom: 3%;
+  left: 3%;
+  right: 3%;
+  text-align: center;
+  font-size: 10px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.carousel__control {
+  display: inline-block;
+  padding: .5em .8em;
+  cursor: pointer;
+}
+
+.carousel__control::after {
+  content: '';
+  display: block;
+  border-radius: .5em;
+  height: 1em;
+  width: 1em;
+  background: white;
+  transition: transform .2s;
+}
+
+.carousel__control:hover::after {
+  transform: scale(1.5);
+}
+
+.carousel__control--active::after {
+  background: #107bae;
+}
+
+@media (min-width: 768px) {
+  .carousel__controls {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .carousel__controls {
+    font-size: 18px;
+  }
+}

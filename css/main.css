@@ -226,6 +226,7 @@ h2 {
 /* Blueprints > Photo */
 
 .photo {
+  position: relative;
   display: block;
   width: 100%;
   height: 56.25vw;
@@ -233,9 +234,11 @@ h2 {
   background-size: cover;
   background-repeat: no-repeat;
 }
+
 .photo.parallax {
   background-attachment: scroll;
 }
+
 .photo blockquote {
   display: none;
   margin: 0;
@@ -439,9 +442,11 @@ h2 {
   padding: 2rem .5rem;
   flex: 1 0 auto;
 }
-.row--numbers .col img{
+
+.row--numbers .col img {
   min-height: 76px;
 }
+
 .row--numbers strong {
   display: block;
   font-size: 32px;
