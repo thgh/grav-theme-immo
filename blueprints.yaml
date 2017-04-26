@@ -1,13 +1,16 @@
 name: Immo
-version: 0.1.0
+version: 0.2.0
 description: Website voor Residentie Overhamme
 icon: rebel
 author:
   name: Thomas Ghysels
   email: info@thomasg.be
+designer:
+  name: Stijn Anseel
+  email: stijn@stans.be
 homepage: https://github.com/thomas-ghysels/grav-theme-immo
-demo: http://demo.yoursite.com
-keywords: grav, theme, etc
+demo: http://residentieoverhamme.be
+keywords: grav, theme, immo, blue
 bugs: https://github.com/thomas-ghysels/grav-theme-immo/issues
 readme: https://github.com/thomas-ghysels/grav-theme-immo/blob/develop/README.md
 license: MIT

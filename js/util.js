@@ -43,3 +43,7 @@ function throttle(func, wait, options) {
     return result;
   };
 }
+
+var qsa = function (s) {
+  return [].slice.call(document.querySelectorAll(s))
+}
