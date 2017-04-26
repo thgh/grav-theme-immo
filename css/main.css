@@ -440,7 +440,9 @@ h2 {
   flex: 1 0 auto;
 }
 .row--numbers .col img{
-  min-height: 76px;
+  /*min-height: 76px;*/
+  max-height:60px;
+
 }
 .row--numbers strong {
   display: block;
