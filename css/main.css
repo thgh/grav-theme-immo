@@ -442,16 +442,10 @@ h2 {
   padding: 2rem .5rem;
   flex: 1 0 auto;
 }
-<<<<<<< HEAD
+
 .row--numbers .col img{
   /*min-height: 76px;*/
   max-height:60px;
-
-=======
-
-.row--numbers .col img {
-  min-height: 76px;
->>>>>>> origin/master
 }
 
 .row--numbers strong {
