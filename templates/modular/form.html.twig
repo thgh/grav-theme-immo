@@ -28,11 +28,16 @@ $(document).ready(function(){
         $.ajax({
             url: form.attr('action'),
             type: form.attr('method'),
+            dataType: 'html',
             data: form.serialize(),
             success: function(result) {
-                // Inject the result in the HTML
-                $('#form-result').html(result)
-                console.log('Form success')
+                if (result) {
+                    return
+                }
+                console.log('Form success', result.length)
+                if (result.length < 1e3) {
+                    $('#form-result').html(result)
+                }
             }
         })
     })
