@@ -1,0 +1,40 @@
+{# class `text` will add the blue line #}
+<section class="form {{ page.header.class }} {{ page.header.body_classes }}">
+  <div class="container">
+    <h2>{{ page.title }}</h2>
+    {{ content }}
+    <div id="form-result"></div>
+    {% include "forms/form.html.twig" %}
+  </div>
+</section>
+
+<script>
+{% if form is null %}
+    {% set form = grav.session.getFlashObject('form') %}
+{% endif  %}
+$(document).ready(function(){
+    var form = $('#{{ form.id }}')
+    form.attr('action', '{{ rtrim(strtok(page.url, '_'), '/') }}')
+    form.on('submit', function(e) {
+        e.preventDefault()
+
+        // Update button styling
+        $('[type=submit]', form)
+          .addClass('button--sent')
+          .attr('disabled', 'disabled')
+          .text('Verstuurd')
+
+        // Submit through AJAX
+        $.ajax({
+            url: form.attr('action'),
+            type: form.attr('method'),
+            data: form.serialize(),
+            success: function(result) {
+                // Inject the result in the HTML
+                $('#form-result').html(result)
+                console.log('Form success')
+            }
+        })
+    })
+})
+</script>
