@@ -14,7 +14,7 @@
 {% endif  %}
 $(document).ready(function(){
     var form = $('#{{ form.id }}')
-    form.attr('action', '{{ rtrim(strtok(page.url, '_'), '/') }}')
+    form.attr('action', '{{ rtrim(strtok(page.url, '_'), '/') }}??')
     form.on('submit', function(e) {
         e.preventDefault()
 
