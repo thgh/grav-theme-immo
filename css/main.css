@@ -279,6 +279,7 @@ h2 {
 
 .buttons button {
   background: white;
+  font-size:16px;
   color: #107bae;
   border: 2px solid transparent;
   line-height: 2em;
