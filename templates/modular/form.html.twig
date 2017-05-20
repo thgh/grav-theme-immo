@@ -31,13 +31,8 @@ $(document).ready(function(){
             dataType: 'html',
             data: form.serialize(),
             success: function(result) {
-                if (result) {
-                    return
-                }
+                $('#form-result').html('Bedankt voor uw bericht!')
                 console.log('Form success', result.length)
-                if (result.length < 1e3) {
-                    $('#form-result').html(result)
-                }
             }
         })
     })
