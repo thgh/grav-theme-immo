@@ -272,7 +272,7 @@ h2 {
 
 .buttons button {
   background: white;
-  font-size:16px;
+  font-size: 16px;
   color: #107bae;
   border: 2px solid transparent;
   font-size: 16px;
@@ -639,7 +639,36 @@ p a {
 }
 
 
-/* Menu Settings */
+/* Footer */
+
+.social {
+  z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  margin-top: -25px;
+  height: 65px;
+  width: 65px;
+  background: #007ab5;
+}
+
+.social a {
+  display: block;
+}
+
+.social svg {
+  display: block;
+}
+
+// @media (max-height: 400px) {
+//   .social {
+//     top: auto;
+//     bottom: 0;
+//     margin-top: 0;
+//     height: 40px;
+//     width: 40px;
+//   }
+// }
 
 .footer {
   padding: 3em 0;
